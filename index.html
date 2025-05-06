@@ -5,246 +5,265 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Government Services FAQ Portal</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      text-align: center;
       padding: 20px;
-      margin: 0;
-      color: #333;
     }
-
-    .container {
-      max-width: 960px;
-      margin: auto;
-    }
-
-    h1, h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .search-bar {
-      margin-bottom: 20px;
-      text-align: center;
-    }
-
-    .search-bar input {
-      width: 90%;
-      max-width: 500px;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
     .tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      justify-content: center;
+      margin: 20px 0;
     }
-
     .tab-button {
-      padding: 12px 16px;
-      background-color: #ffffff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 10px 15px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
       cursor: pointer;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      white-space: nowrap;
     }
-
-    .tab-button:hover {
-      background-color: #f0f8ff;
-    }
-
     .tab-button.active {
-      background-color: #0077cc;
+      background-color: #007BFF;
       color: white;
-      border-color: #0077cc;
-      box-shadow: 0 4px 8px rgba(0, 119, 204, 0.2);
     }
-
-    .tab-content {
+    .faq-section {
       display: none;
-      background: white;
-      padding: 20px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
     }
-
-    .tab-content.active {
+    .faq-section.active {
       display: block;
     }
-
-    .faq-question {
-      width: 100%;
-      padding: 12px;
-      background: #eee;
-      border: none;
-      cursor: pointer;
-      margin-top: 10px;
-      text-align: left;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .faq-question:hover {
-      background: #ddd;
-    }
-
-    .faq-answer {
-      display: none;
+    .faq {
+      background: #f2f2f2;
+      margin: 10px 0;
       padding: 10px;
-      background: #f1f1f1;
       border-radius: 5px;
-      margin-bottom: 10px;
     }
-
-    .contact-whatsapp {
-      text-align: center;
-      margin-top: 40px;
+    .faq h4 {
+      margin: 0;
+      cursor: pointer;
     }
-
+    .faq p {
+      display: none;
+      margin: 5px 0 0;
+    }
     .whatsapp-button {
-      display: inline-block;
-      padding: 12px 20px;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
       background-color: #25D366;
       color: white;
-      font-size: 16px;
-      border-radius: 5px;
+      padding: 12px 20px;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: bold;
-    }
-
-    .whatsapp-button:hover {
-      background-color: #1ebe5b;
-    }
-
-    @media (max-width: 600px) {
-      .tab-button {
-        flex: 1 1 100%;
-        text-align: center;
-      }
-
-      .tabs {
-        flex-direction: column;
-      }
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Government Services FAQ Portal</h1>
+  <h1>Government Services FAQ Portal</h1>
 
-    <div class="search-bar">
-      <input type="text" id="searchInput" placeholder="Search FAQs...">
-    </div>
+  <div class="tabs" id="tabs"></div>
+  <div id="faq-container"></div>
 
-    <div class="tabs">
-      <button class="tab-button active" onclick="showTab('ntsa', event)">NTSA</button>
-      <button class="tab-button" onclick="showTab('kra', event)">KRA</button>
-      <button class="tab-button" onclick="showTab('passport', event)">Passport</button>
-      <button class="tab-button" onclick="showTab('brs', event)">BRS</button>
-      <button class="tab-button" onclick="showTab('crs', event)">CRS</button>
-      <button class="tab-button" onclick="showTab('police', event)">Police Clearance</button>
-      <button class="tab-button" onclick="showTab('helb', event)">HELB</button>
-    </div>
-
-    <div id="ntsa" class="tab-content active">
-      <h2>NTSA FAQs</h2>
-      <div class="faq">
-        <button class="faq-question">How do I renew my driving license?</button>
-        <div class="faq-answer">Visit the NTSA portal, log in, and apply for renewal under the DL section.</div>
-        <button class="faq-question">What is the TIMS system?</button>
-        <div class="faq-answer">TIMS is an online system for vehicle registration and ownership transfers.</div>
-      </div>
-    </div>
-
-    <div id="kra" class="tab-content">
-      <h2>KRA FAQs</h2>
-      <div class="faq">
-        <button class="faq-question">How do I get a KRA PIN?</button>
-        <div class="faq-answer">Go to the iTax portal and register as an individual to generate a PIN.</div>
-      </div>
-    </div>
-
-    <div id="passport" class="tab-content">
-      <h2>Passport FAQs</h2>
-      <div class="faq">
-        <button class="faq-question">How do I apply for a Kenyan passport?</button>
-        <div class="faq-answer">Visit the eCitizen platform and follow the instructions under immigration services.</div>
-      </div>
-    </div>
-
-    <div id="brs" class="tab-content">
-      <h2>Business Registration Service (BRS)</h2>
-      <div class="faq">
-        <button class="faq-question">How do I register a business name?</button>
-        <div class="faq-answer">Use the eCitizen portal under BRS to register a business or company name online.</div>
-      </div>
-    </div>
-
-    <div id="crs" class="tab-content">
-      <h2>Civil Registration Service (CRS)</h2>
-      <div class="faq">
-        <button class="faq-question">How do I get a birth certificate?</button>
-        <div class="faq-answer">Apply at your local civil registration office or through the eCitizen platform if available.</div>
-      </div>
-    </div>
-
-    <div id="police" class="tab-content">
-      <h2>Police Clearance Certificate (Good Conduct)</h2>
-      <div class="faq">
-        <button class="faq-question">How do I apply for a certificate of good conduct?</button>
-        <div class="faq-answer">Log in to eCitizen, select DCI services, and apply for a police clearance certificate.</div>
-      </div>
-    </div>
-
-    <div id="helb" class="tab-content">
-      <h2>HELB</h2>
-      <div class="faq">
-        <button class="faq-question">How do I apply for a HELB loan?</button>
-        <div class="faq-answer">Visit the HELB portal, register, and apply for a loan or bursary.</div>
-      </div>
-    </div>
-
-    <div class="contact-whatsapp">
-      <a href="https://wa.me/254722XXXXXX" class="whatsapp-button" target="_blank">Contact Us on WhatsApp</a>
-    </div>
-
-  </div>
+  <a href="https://wa.me/254712345678" target="_blank" class="whatsapp-button">Contact Huduma via WhatsApp</a>
 
   <script>
-    // Tab Switcher
-    function showTab(tabId, event) {
-      const tabs = document.querySelectorAll(".tab-content");
-      const buttons = document.querySelectorAll(".tab-button");
-      
-      tabs.forEach(tab => tab.classList.remove("active"));
-      buttons.forEach(button => button.classList.remove("active"));
+    const services = {
+      "NTSA": [
+        { q: "How do I register for an eCitizen account?", a: "Visit the eCitizen portal and follow the registration steps." },
+        { q: "What do I do if I lose my ID and don't have the number?", a: "Visit a Huduma Centre to apply for a new ID." },
+        { q: "How can I obtain a copy of my driving license?", a: "Send an SMS with the word 'DL' to 22430 to subscribe to NTSA services, then dial *512# and enter your ID number." },
+        { q: "How do I apply for a duplicate driving license?", a: "Use the reference number received via SMS to apply for a duplicate." },
+        { q: "What should I do if I forget my eCitizen password?", a: "Use the 'Forgot Password' option on the login page to reset your password." },
+        { q: "How can I update my personal details on eCitizen?", a: "Log in to your account and navigate to the profile section to update your details." },
+        { q: "What services are available on eCitizen?", a: "Services include driving license applications, vehicle registration, and more." },
+        { q: "How do I check the status of my application?", a: "Log in to your eCitizen account and check the 'My Applications' section." },
+        { q: "Can I apply for a driving license online?", a: "Yes, you can apply for a driving license through the eCitizen portal." },
+        { q: "How do I renew my driving license?", a: "Log in to eCitizen, select the NTSA services, and follow the renewal process." },
+        { q: "What documents are required for vehicle registration?", a: "You will need your ID, KRA PIN, and proof of ownership." },
+        { q: "How can I transfer vehicle ownership?", a: "Complete the transfer process through the NTSA portal on eCitizen." },
+        { q: "What is the validity period of a driving license?", a: "A driving license is typically valid for 3 years." },
+        { q: "How do I report a lost or stolen driving license?", a: "Report the loss through the NTSA portal and follow the necessary steps." },
+        { q: "Can I apply for a PSV license online?", a: "Yes, PSV license applications can be made through the eCitizen portal." },
+        { q: "How do I check if my vehicle is insured?", a: "Use the NTSA portal to verify your vehicle's insurance status." },
+        { q: "What is the process for vehicle inspection?", a: "Schedule an inspection through the NTSA portal and follow the guidelines." },
+        { q: "How can I pay for NTSA services?", a: "Payments can be made online via the eCitizen platform." },
+        { q: "What should I do if I encounter issues with NTSA services?", a: "Contact NTSA support through the provided channels on their website." },
+        { q: "How do I lodge a complaint regarding NTSA services?", a: "Use the complaint section on the NTSA portal to submit your issue." }
+      ],
+      "KRA": [
+        { q: "What is a KRA PIN?", a: "A KRA PIN is a unique identification number assigned to individuals and entities for tax purposes." },
+        { q: "How do I register for a KRA PIN?", a: "Visit the KRA iTax portal and follow the registration process." },
+        { q: "What documents are needed to register for a KRA PIN?", a: "You need your national ID and email address." },
+        { q: "How do I file tax returns?", a: "Log in to the KRA iTax portal, select the 'Returns' tab, and follow the steps." },
+        { q: "What is the deadline for filing tax returns?", a: "The deadline for individuals is June 30th every year." },
+        { q: "Can I file a nil return?", a: "Yes, if you had no income in the year, you must file a nil return." },
+        { q: "How do I correct a mistake in my tax return?", a: "Use the 'Amend Return' option in the iTax portal." },
+        { q: "What is a Tax Compliance Certificate (TCC)?", a: "It proves that you have met all your tax obligations." },
+        { q: "How do I apply for a TCC?", a: "Log in to iTax, go to 'Certificates' and select 'Apply for TCC'." },
+        { q: "What is the penalty for late filing?", a: "KRA charges a penalty of KSh 2,000 for individuals or 5% of tax due." },
+        { q: "How do I reset my iTax password?", a: "Use the 'Forgot Password' link on the iTax login page." },
+        { q: "Can I change my email on KRA records?", a: "Yes, request a change via the iTax profile update form." },
+        { q: "How do I get a KRA PIN certificate?", a: "After registering, download your certificate from your iTax dashboard." },
+        { q: "What is PAYE?", a: "Pay As You Earn is income tax deducted from salaries." },
+        { q: "How do I declare rental income?", a: "Use the Rental Income section in your iTax account to file returns." },
+        { q: "How can a company file VAT returns?", a: "Log into iTax, select VAT returns and complete the online form." },
+        { q: "Is it mandatory to file returns?", a: "Yes, every registered taxpayer must file returns annually." },
+        { q: "What is withholding tax?", a: "Tax deducted at source from certain payments like dividends or rent." },
+        { q: "Where can I get help with tax matters?", a: "Call KRA or visit your nearest Huduma Centre for assistance." },
+        { q: "Can I use a cyber café to file returns?", a: "Yes, as long as the cyber is trusted and your credentials are safe." }
+      ],
+      "BRS": [
+{ q: "What is BRS?", a: "The Business Registration Service is a government agency that facilitates business and company registration in Kenya." },
+{ q: "How do I register a business name?", a: "Log into the eCitizen portal, select BRS, and follow the process to register a business name." },
+{ q: "What types of businesses can I register with BRS?", a: "You can register a sole proprietorship, partnership, private limited company, public limited company, or NGO." },
+{ q: "What documents are needed to register a company?", a: "You need a name reservation, directors’ ID and PINs, company structure, and contact details." },
+{ q: "How do I reserve a business name?", a: "Use the Name Search and Reservation service on the eCitizen BRS platform." },
+{ q: "How long does name reservation take?", a: "It usually takes 1 to 2 working days." },
+{ q: "What is the cost of registering a business name?", a: "The fee for business name registration is KSh 950." },
+{ q: "How do I change my company directors?", a: "Log into the BRS portal and file a change of particulars under company maintenance." },
+{ q: "Can foreigners register companies in Kenya?", a: "Yes, foreigners can register companies but must provide passport copies and PINs for tax compliance." },
+{ q: "How do I get a Certificate of Incorporation?", a: "After successful company registration, the certificate is available for download from your BRS account." },
+{ q: "What is CR12?", a: "A CR12 is an official confirmation of company directorship and shareholding from the Registrar of Companies." },
+{ q: "How do I apply for a CR12?", a: "You can apply through an advocate or authorized agent via the BRS system." },
+{ q: "Can I update my company details online?", a: "Yes, company maintenance services are available on the BRS portal." },
+{ q: "What is the difference between a business name and a company?", a: "A business name has no legal separation from the owner, while a company is a separate legal entity." },
+{ q: "Is annual filing mandatory?", a: "Yes, all companies must file annual returns with the Registrar of Companies." },
+{ q: "What happens if I don’t file annual returns?", a: "Failure to file may lead to penalties or the company being struck off the register." },
+{ q: "How do I deregister a business name?", a: "Apply for cessation of business through the BRS platform with the required documents." },
+{ q: "What is the turnaround time for company registration?", a: "Most company registrations are completed within 3 to 5 working days." },
+{ q: "Can I register a company without a lawyer?", a: "Yes, you can self-register through eCitizen, though legal advice is recommended for complex structures." },
+{ q: "Where can I get help with BRS services?", a: "Visit the BRS help desk at Huduma Centres or contact their support via the eCitizen portal." }
+],
+      "CRS": [
+        { q: "What is Civil Registration Services?", a: "CRS handles the registration of births, deaths, marriages, and issuance of related certificates in Kenya." },
+{ q: "How do I apply for a birth certificate?", a: "Visit your local Civil Registration office with the child’s birth notification and parent’s ID." },
+{ q: "What documents are needed for a birth certificate?", a: "You need a birth notification, parents' IDs, and sometimes marriage certificate." },
+{ q: "Can I apply for a birth certificate online?", a: "In some counties, applications can be initiated on eCitizen, but collection is done in person." },
+{ q: "How much does a birth certificate cost?", a: "It typically costs KSh 50 to KSh 150 depending on the office." },
+{ q: "How do I apply for a death certificate?", a: "Submit the death notification and ID of the deceased at a CRS office." },
+{ q: "How do I replace a lost birth certificate?", a: "Visit CRS with your ID and an affidavit for replacement." },
+{ q: "Can I change names on a birth certificate?", a: "Yes, through a legal process that includes a deed poll and gazettement." },
+{ q: "What is the turnaround time for a birth certificate?", a: "It usually takes 2 to 4 weeks, but this may vary by location." },
+{ q: "Can I get a birth certificate for someone born before 1970?", a: "Yes, but you may need to provide additional supporting documents." },
+{ q: "Where are CRS offices located?", a: "They are located in most sub-counties and major Huduma Centres countrywide." },
+{ q: "Is it mandatory to register a birth in Kenya?", a: "Yes, all births must be registered by law." },
+{ q: "How do I register a birth if the child was born at home?", a: "Obtain a birth notification from a local chief or health worker, then visit CRS." },
+{ q: "Can non-Kenyans get a Kenyan birth certificate?", a: "Only if the child was born in Kenya to parents legally residing in the country." },
+{ q: "What is required to register a marriage?", a: "Identification documents, photos, and notice of intention to marry." },
+{ q: "How long does it take to get a marriage certificate?", a: "The process may take 21–30 days depending on the type of marriage registration." },
+{ q: "Can I get a digital copy of a birth certificate?", a: "Not yet widely available; physical copies are issued at CRS offices." },
+{ q: "Can a birth certificate be used to apply for a passport?", a: "Yes, it is a primary identification document for passport application." },
+{ q: "How do I correct an error on a birth certificate?", a: "Apply for a correction at CRS with evidence supporting the change." },
+{ q: "Where can I get help with civil registration services?", a: "Visit your nearest Civil Registration office or Huduma Centre." }
 
-      document.getElementById(tabId).classList.add("active");
-      event.target.classList.add("active");
+      ],
+      "Good Conduct": [
+        { q: "What is a Police Clearance Certificate?", a: "It is an official document issued by the DCI confirming an individual's criminal record status." },
+{ q: "How do I apply for a Certificate of Good Conduct?", a: "Apply through the eCitizen portal under the DCI section." },
+{ q: "Who can apply for a Good Conduct certificate?", a: "Any Kenyan citizen or foreign resident above 18 years old can apply." },
+{ q: "Is fingerprinting required for Good Conduct?", a: "Yes, physical fingerprinting is mandatory at designated Huduma Centres or police stations." },
+{ q: "How much does it cost to get a Good Conduct certificate?", a: "The fee is KSh 1,050 payable via eCitizen." },
+{ q: "How long does it take to receive the certificate?", a: "Processing usually takes 2 to 4 weeks." },
+{ q: "Where do I go for fingerprinting?", a: "Visit a Huduma Centre or DCI office with your eCitizen payment receipt." },
+{ q: "Can I apply for Good Conduct on behalf of someone else?", a: "No, the applicant must be present for fingerprinting." },
+{ q: "Is the certificate valid indefinitely?", a: "No, it is valid for one year from the date of issue." },
+{ q: "What documents do I need to apply?", a: "You need your original ID or passport and an eCitizen account." },
+{ q: "Can minors apply for Good Conduct?", a: "Yes, children under 18 can apply through a parent or guardian." },
+{ q: "Can foreigners apply for Good Conduct?", a: "Yes, foreign residents must provide their alien ID and passport." },
+{ q: "Can I apply while abroad?", a: "Yes, through the Kenyan embassy or consulate." },
+{ q: "What does the certificate show?", a: "It shows whether or not the applicant has a criminal record in Kenya." },
+{ q: "How do I check the status of my application?", a: "Log in to eCitizen and check under 'Police Clearance' service." },
+{ q: "Can I use the certificate for job applications?", a: "Yes, it is commonly required for employment, especially government jobs." },
+{ q: "What if I lose my certificate?", a: "Reapply through eCitizen and repeat the fingerprint process." },
+{ q: "Can I update or correct an error on the certificate?", a: "You must contact the DCI for any corrections or disputes." },
+{ q: "Is there an express service for Good Conduct?", a: "Currently, there is no official express option." },
+{ q: "Where can I get help with the application?", a: "Visit your nearest Huduma Centre or contact eCitizen support." }
+
+      ],
+      "NRB": [
+        { q: "What is the National Registration Bureau (NRB)?", a: "NRB is the Kenyan government agency responsible for registering and issuing national identification documents." },
+{ q: "How do I apply for a National ID?", a: "Visit your nearest NRB or Huduma Centre with your birth certificate and one parent's ID." },
+{ q: "What documents are required to apply for an ID?", a: "You need a birth certificate or baptism card, school leaving certificate, and a parent’s or guardian’s ID." },
+{ q: "At what age can I apply for a National ID?", a: "You must be at least 18 years old to apply for a Kenyan national ID." },
+{ q: "How much does it cost to get an ID?", a: "The first ID is free; replacement costs around KSh 100." },
+{ q: "How long does it take to get an ID?", a: "It typically takes 4 to 8 weeks, depending on your location." },
+{ q: "Where can I apply for an ID?", a: "Apply at your local NRB office, assistant chief’s office, or Huduma Centre." },
+{ q: "Can I track my ID application?", a: "Yes, by visiting the NRB office where you applied or using SMS tracking if available." },
+{ q: "What do I do if I lose my ID?", a: "Report to the police, obtain an abstract, and apply for a replacement at NRB." },
+{ q: "Can I update my ID details?", a: "Yes, you can apply for changes such as name correction with supporting documents." },
+{ q: "How do I correct a name on my ID?", a: "Submit a written request, original ID, and legal documents like a deed poll or birth certificate." },
+{ q: "Is Huduma Namba the same as a National ID?", a: "No, Huduma Namba is a unique personal identification number, while the ID is a physical document." },
+{ q: "Can I apply for an ID while abroad?", a: "Yes, through the nearest Kenyan embassy or consulate." },
+{ q: "Is fingerprinting required for ID application?", a: "Yes, biometric fingerprinting is mandatory for identification." },
+{ q: "Can I apply for an ID without a birth certificate?", a: "No, a birth certificate or a legally accepted substitute is required." },
+{ q: "What if my ID application is delayed?", a: "Follow up with the issuing office or escalate through a Huduma Centre." },
+{ q: "What is the role of assistant chiefs in registration?", a: "Assistant chiefs verify and forward ID applications within their jurisdiction." },
+{ q: "Can I have two IDs?", a: "No, it is illegal to possess more than one National ID in Kenya." },
+{ q: "How do I get help with ID services?", a: "Visit your nearest NRB office or Huduma Centre for assistance." },
+{ q: "Is ID registration mandatory in Kenya?", a: "Yes, all citizens aged 18 and above are required to have a National ID." }
+
+      ]
+    };
+
+    const tabs = document.getElementById('tabs');
+    const faqContainer = document.getElementById('faq-container');
+
+    function createTabButtons() {
+      for (let service in services) {
+        const btn = document.createElement('button');
+        btn.textContent = service;
+        btn.className = 'tab-button';
+        btn.onclick = () => activateTab(service);
+        tabs.appendChild(btn);
+      }
     }
 
-    // Toggle FAQ Answer
-    const faqQuestions = document.querySelectorAll(".faq-question");
-    faqQuestions.forEach(question => {
-      question.addEventListener("click", () => {
-        const answer = question.nextElementSibling;
-        answer.style.display = answer.style.display === "none" ? "block" : "none";
-      });
-    });
+    function activateTab(serviceName) {
+      document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.faq-section').forEach(f => f.classList.remove('active'));
+
+      const activeBtn = Array.from(document.querySelectorAll('.tab-button')).find(b => b.textContent === serviceName);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const section = document.getElementById(serviceName);
+      if (section) section.classList.add('active');
+    }
+
+    function createFAQs() {
+      for (let service in services) {
+        const section = document.createElement('div');
+        section.id = service;
+        section.className = 'faq-section';
+
+        services[service].forEach(item => {
+          const faq = document.createElement('div');
+          faq.className = 'faq';
+
+          const question = document.createElement('h4');
+          question.textContent = item.q;
+          question.onclick = () => {
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+          };
+
+          const answer = document.createElement('p');
+          answer.textContent = item.a;
+
+          faq.appendChild(question);
+          faq.appendChild(answer);
+          section.appendChild(faq);
+        });
+
+        faqContainer.appendChild(section);
+      }
+    }
+
+    createTabButtons();
+    createFAQs();
+    activateTab('KRA'); // default tab
   </script>
 </body>
 </html>
