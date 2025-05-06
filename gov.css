@@ -1,0 +1,136 @@
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      margin: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-button {
+      padding: 12px 16px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tab-button:hover {
+      background-color: #f0f8ff;
+    }
+
+    .tab-button.active {
+      background-color: #0077cc;
+      color: white;
+      border-color: #0077cc;
+      box-shadow: 0 4px 8px rgba(0, 119, 204, 0.2);
+    }
+
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 12px;
+      background: #eee;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: left;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: #ddd;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px;
+      background: #f1f1f1;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .contact-whatsapp {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #25D366;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1ebe5b;
+    }
+
+    @media (max-width: 600px) {
+      .tab-button {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+    }
