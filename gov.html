@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government Services FAQ Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+      margin: 0;
+      color: #333;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .search-bar {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .search-bar input {
+      width: 90%;
+      max-width: 500px;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .tab-button {
+      padding: 12px 16px;
+      background-color: #ffffff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .tab-button:hover {
+      background-color: #f0f8ff;
+    }
+
+    .tab-button.active {
+      background-color: #0077cc;
+      color: white;
+      border-color: #0077cc;
+      box-shadow: 0 4px 8px rgba(0, 119, 204, 0.2);
+    }
+
+    .tab-content {
+      display: none;
+      background: white;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .faq-question {
+      width: 100%;
+      padding: 12px;
+      background: #eee;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+      text-align: left;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .faq-question:hover {
+      background: #ddd;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px;
+      background: #f1f1f1;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .contact-whatsapp {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .whatsapp-button {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #25D366;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #1ebe5b;
+    }
+
+    @media (max-width: 600px) {
+      .tab-button {
+        flex: 1 1 100%;
+        text-align: center;
+      }
+
+      .tabs {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Government Services FAQ Portal</h1>
+
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search FAQs...">
+    </div>
+
+    <div class="tabs">
+      <button class="tab-button active" onclick="showTab('ntsa', event)">NTSA</button>
+      <button class="tab-button" onclick="showTab('kra', event)">KRA</button>
+      <button class="tab-button" onclick="showTab('passport', event)">Passport</button>
+      <button class="tab-button" onclick="showTab('brs', event)">BRS</button>
+      <button class="tab-button" onclick="showTab('crs', event)">CRS</button>
+      <button class="tab-button" onclick="showTab('police', event)">Police Clearance</button>
+      <button class="tab-button" onclick="showTab('helb', event)">HELB</button>
+    </div>
+
+    <div id="ntsa" class="tab-content active">
+      <h2>NTSA FAQs</h2>
+      <div class="faq">
+        <button class="faq-question">How do I renew my driving license?</button>
+        <div class="faq-answer">Visit the NTSA portal, log in, and apply for renewal under the DL section.</div>
+        <button class="faq-question">What is the TIMS system?</button>
+        <div class="faq-answer">TIMS is an online system for vehicle registration and ownership transfers.</div>
+      </div>
+    </div>
+
+    <div id="kra" class="tab-content">
+      <h2>KRA FAQs</h2>
+      <div class="faq">
+        <button class="faq-question">How do I get a KRA PIN?</button>
+        <div class="faq-answer">Go to the iTax portal and register as an individual to generate a PIN.</div>
+      </div>
+    </div>
+
+    <div id="passport" class="tab-content">
+      <h2>Passport FAQs</h2>
+      <div class="faq">
+        <button class="faq-question">How do I apply for a Kenyan passport?</button>
+        <div class="faq-answer">Visit the eCitizen platform and follow the instructions under immigration services.</div>
+      </div>
+    </div>
+
+    <div id="brs" class="tab-content">
+      <h2>Business Registration Service (BRS)</h2>
+      <div class="faq">
+        <button class="faq-question">How do I register a business name?</button>
+        <div class="faq-answer">Use the eCitizen portal under BRS to register a business or company name online.</div>
+      </div>
+    </div>
+
+    <div id="crs" class="tab-content">
+      <h2>Civil Registration Service (CRS)</h2>
+      <div class="faq">
+        <button class="faq-question">How do I get a birth certificate?</button>
+        <div class="faq-answer">Apply at your local civil registration office or through the eCitizen platform if available.</div>
+      </div>
+    </div>
+
+    <div id="police" class="tab-content">
+      <h2>Police Clearance Certificate (Good Conduct)</h2>
+      <div class="faq">
+        <button class="faq-question">How do I apply for a certificate of good conduct?</button>
+        <div class="faq-answer">Log in to eCitizen, select DCI services, and apply for a police clearance certificate.</div>
+      </div>
+    </div>
+
+    <div id="helb" class="tab-content">
+      <h2>HELB</h2>
+      <div class="faq">
+        <button class="faq-question">How do I apply for a HELB loan?</button>
+        <div class="faq-answer">Visit the HELB portal, register, and apply for a loan or bursary.</div>
+      </div>
+    </div>
+
+    <div class="contact-whatsapp">
+      <a href="https://wa.me/254722XXXXXX" class="whatsapp-button" target="_blank">Contact Us on WhatsApp</a>
+    </div>
+
+  </div>
+
+  <script>
+    // Tab Switcher
+    function showTab(tabId, event) {
+      const tabs = document.querySelectorAll(".tab-content");
+      const buttons = document.querySelectorAll(".tab-button");
+      
+      tabs.forEach(tab => tab.classList.remove("active"));
+      buttons.forEach(button => button.classList.remove("active"));
+
+      document.getElementById(tabId).classList.add("active");
+      event.target.classList.add("active");
+    }
+
+    // Toggle FAQ Answer
+    const faqQuestions = document.querySelectorAll(".faq-question");
+    faqQuestions.forEach(question => {
+      question.addEventListener("click", () => {
+        const answer = question.nextElementSibling;
+        answer.style.display = answer.style.display === "none" ? "block" : "none";
+      });
+    });
+  </script>
+</body>
+</html>
